@@ -5,7 +5,6 @@ import { getRecord, updateRecord } from "../store/features/recordsSlice";
 
 function EditRecordPage() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const record = useSelector((state) =>
     state.records.records.find((record) => record.id === parseInt(id))
@@ -22,9 +21,10 @@ function EditRecordPage() {
     }
   }, [dispatch, id, record]);
 
-  const handleUpdateRecord = () => {
+  const handleUpdateRecord = (e) => {
+    e.preventDefault();
+
     dispatch(updateRecord({ id, recordData: { text, choice } }));
-    navigate("/");
   };
 
   if (!record) return <p>Loading...</p>;
@@ -33,7 +33,7 @@ function EditRecordPage() {
     <div>
       <h2>Edit Record</h2>
 
-      <form action="" method="POST">
+      <form action="" method="PUT">
         <textarea
           rows="5"
           cols="30"
@@ -49,6 +49,10 @@ function EditRecordPage() {
 
         <button onClick={handleUpdateRecord}>Save</button>
       </form>
+
+      <br /><br /><br />
+
+      <a href="/">Home page</a>
     </div>
   );
 }

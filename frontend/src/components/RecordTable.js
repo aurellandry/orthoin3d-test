@@ -18,7 +18,7 @@ function RecordTable({ records, deleteRecord }) {
             <td>{record.choice_label}</td>
             <td>
               <Link to={`/edit/${record.id}`}>
-                <button>Edits</button>
+                <button>Edit</button>
               </Link>
               <button onClick={() => deleteRecord(record.id)}>Delete</button>
             </td>

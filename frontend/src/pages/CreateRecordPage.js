@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRecords, addRecord, deleteRecord } from "../store/features/recordsSlice";
+import { useDispatch } from "react-redux";
+import { addRecord } from "../store/features/recordsSlice";
 
 function CreateRecordPage() {
   const AVAILABLE_CHOICES = [
@@ -33,7 +33,7 @@ function CreateRecordPage() {
 
   return (
     <div>
-      <h2>Edit Record</h2>
+      <h2>Create Record</h2>
 
       <form action="" method="POST">
         <textarea
