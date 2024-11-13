@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import get_records, record_details
+from .views.record_list_view import RecordListView
+from .views.record_detail_view import RecordDetailView
 
 urlpatterns = [
-    path('records/', get_records, name='get_records'),
-    path('records/<int:id>', record_details, name='record_details'),
+    path('records/', RecordListView.as_view(), name='get_records'),
+    path('records/<int:id>', RecordDetailView.as_view(), name='record_details'),
 ]
